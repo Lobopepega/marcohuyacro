@@ -1,0 +1,70 @@
+\\\ Hunter macro's and other things - Макросы и прочая хуйня на ханта ///
+\\\ ВАЖНО: Для Ру клиента нужно менять названия заклинаний на русскоязычные варианты) ///
+
+MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO MACRO 
+
+/// Hunter's mark + Automatic tracking type - Метка охотника и автоматический трекинг
+!!! Автоматический трекинг не  работает на ру клиенте !!!
+#showtooltip
+/run for i=1,GetNumTrackingTypes() do local n, t, a, c = GetTrackingInfo(i); if string.find(n, UnitCreatureType("target")) then if t~=GetTrackingTexture(i) then SetTracking(i); end end end
+/cast Hunter's Mark(Rank 5)
+
+
+/// Mouseover\target Killshot - Киллшот по маусоверу\цели 
+#showtooltip
+/cast [@mouseover, harm][] Kill Shot(Rank 3)
+
+
+/// Dragonhawk\Viper aspect change macro in one button - Смена дух дракондора\гадюки через одну кнопку
+#showtooltip
+/castsequence !Aspect of the Dragonhawk(Rank 2), !Aspect of the Viper
+
+
+/// Focus MD's - Перенаправление по фокусу
+#showtooltip Misdirection
+/target focus
+/cast Misdirection
+/targetlasttarget
+
+
+/// Tank MD's - Перенаправление на танка
+#showtooltip Misdirection
+/target TANKNAME
+/cast Misdirection
+/targetlasttarget
+
+// I'm using separate macro for each tank and for focus, so i dont have to switch focus midfight.
+// Я использую отдельные макросы для каждого танка и для фокуса, чтобы в бою не менять.
+
+/// Petattack on mouseover - Атака пета по курсору (для принцов)
+/petattack [@mouseover,harm][]
+
+/// Chimera shot - Химера
+#showtooltip Chimera Shot
+/use Chimera Shot
+/use !Silencing shot
+/use !Kill Command
+
+/// Aimed shot - Прицельный выстрел
+#showtooltip Aimed Shot
+/use Aimed shot
+/use !Silencing shot
+/use !Kill Command
+
+/// Steady shot - Верный выстрел
+#showtooltip Steady Shot
+/use Sanctified Ahn'Kahar Blood Hunter's Handguards
+/use Steady Shot
+/use !Silencing shot
+/use !Kill Command
+
+/// Each spell is macroed with Silencing shot and kill command as they dont consume GCD.
+/// В каждый спелл вписан сайленс и команда взять, они не требуют ГКД и являются частью ротации.
+
+/// Focus and Mouseover Tranq shot - Усмиряющий выстрел по фокусу и курсору
+
+#showtooltip Tranquilizing shot
+/use [@focus] Tranquilizing shot
+
+#showtooltip Tranquilizing shot
+/use [@mouseover] Tranquilizing shot
